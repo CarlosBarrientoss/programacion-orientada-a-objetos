@@ -1,0 +1,64 @@
+package encapsulamiento;
+
+public class CuentaBancaria {
+
+    private String numeroCuenta;
+    private String titular;
+    private double saldo;
+
+    public CuentaBancaria() {
+    }
+
+    public CuentaBancaria(String numeroCuenta, String titular, double saldo) {
+        this.numeroCuenta = numeroCuenta;
+        this.titular = titular;
+        this.saldo = saldo;
+    }
+
+    public String getNumeroCuenta(){
+        return numeroCuenta;
+    }
+
+    public String getTitular(){
+        return titular;
+    }
+
+    public double getSaldo(){
+        return saldo;
+    }
+
+    public void setNumeroCuenta(String numeroCuenta){
+        this.numeroCuenta = numeroCuenta;
+    }
+
+    public void setTitular(String titular) {
+        this.titular = titular;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
+    public void depositar(double cantidad){
+        if (cantidad > 0){
+
+          this.saldo += cantidad;
+          System.out.println("Deposito exitoso de $" + cantidad);
+
+        }else{
+            System.out.println("Error: la cantidad debe ser positiva.");
+        }
+    }
+
+    public void retirar(double cantidad){
+        if (cantidad <= 0){
+            System.out.println("Error: la cantidad debe ser positiva.");
+        } else if(cantidad > this.saldo){
+            System.out.println("Error: saldo insuficiente");
+        } else {
+            this.saldo -= cantidad;
+            System.out.println("Retiro exitoso de $" + cantidad);
+
+        }
+    }
+}
